@@ -10,7 +10,27 @@
 </head>
 
 <body class="font-sans">
+  <?php
+  // Incluir el archivo de conexión a la base de datos
+  include_once '../../config/conexion.php';
 
+  $productos = [];
+  $query = "SELECT p.tipo as tipo_producto, m.*
+            FROM manuales m
+            JOIN productos p ON p.id = m.producto_id;";
+
+  $resultado = mysqli_query($con, $query);
+
+  if ($resultado) {
+    while ($fila = mysqli_fetch_assoc($resultado)) {
+      $productos[] = $fila;
+    }
+  } else {
+    echo "Error en la consulta: " . mysqli_error($con);
+  }
+  mysqli_close($con);
+
+  ?>
   <!-- Cabecera -->
   <header class="bg-white sticky top-0 z-50 border-b border-gray-200">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
@@ -98,66 +118,37 @@
       </div>
       <div
         class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        <article class="flex max-w-xl flex-col items-start justify-between">
-          <div class="flex items-center gap-x-4 text-xs">
-            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2025</time>
-            <a href="#"
-              class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Gubernamental</a>
-          </div>
-          <div class="group relative">
-            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a>
-                <span class="absolute inset-0"></span>
-                Requerimiento BB, SS y CAS
-              </a>
-            </h3>
-          </div>
-          <iframe class="w-full rounded-md mt-2 h-[200px]"
-            src="https://www.youtube.com/embed/5ALwWIT1mtw?si=-pStaA8DhebOzHnM" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </article>
-        <article class="flex max-w-xl flex-col items-start justify-between">
-          <div class="flex items-center gap-x-4 text-xs">
-            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2025</time>
-            <a href="#"
-              class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Gubernamental</a>
-          </div>
-          <div class="group relative">
-            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a>
-                <span class="absolute inset-0"></span>
-                Mantenimiento de Personales
-              </a>
-            </h3>
-          </div>
-          <iframe class="w-full rounded-md mt-2 h-[200px]"
-            src="https://www.youtube.com/embed/9OoxdjjhFbw?si=JZWraZep7GcubAId" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </article>
-        <article class="flex max-w-xl flex-col items-start justify-between">
-          <div class="flex items-center gap-x-4 text-xs">
-            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2025</time>
-            <a href="#"
-              class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Gubernamental</a>
-          </div>
-          <div class="group relative">
-            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a>
-                <span class="absolute inset-0"></span>
-                Mantenimiento de Usuarios
-              </a>
-            </h3>
-          </div>
-          <iframe class="w-full rounded-md mt-2 h-[200px]"
-            src="https://www.youtube.com/embed/3nkyQwro5To?si=8MJpc0B1vRGJVZnF" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </article>
+        <?php foreach ($productos as $producto): ?>
+          <article class="flex max-w-xl flex-col items-start justify-between">
+            <div class="flex items-center gap-x-4 text-xs">
+              <time datetime="<?= $producto['fecha'] ?>" class="text-gray-500"><?= $producto['fecha'] ?></time>
+              <a href="#"
+                class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"><?= ucfirst($producto['tipo_producto']) ?></a>
+            </div>
+            <div class="group relative">
+              <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                <a>
+                  <span class="absolute inset-0"></span>
+                  <?= $producto['titulo'] ?>
+                </a>
+              </h3>
+            </div>
+            <?php if($producto['tipo'] == 'VIDEO') : ?>
+            <iframe class="w-full rounded-md mt-2 h-[200px]" src="<?php echo $producto['url_manual'] ?>"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <?php else: ?>
+              <div class="w-full rounded-md mt-2 h-[200px] bg-gray-100 flex items-center justify-center">
+              
+              <a href="<?= $producto['url_manual'] ?>"
+              class="mt-2 inline-block rounded-md bg-indigo-600 px-3 py-4 text-sm font-semibold text-white hover:bg-indigo-700">
+              Descargar Manual
+               </a>
+              </div>
+            <?php endif; ?>
+          </article>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
@@ -193,19 +184,19 @@
   </footer>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const openBtn = document.getElementById("openMenu");
-        const closeBtn = document.getElementById("closeMenu");
-        const mobileMenu = document.getElementById("mobileMenu");
+      const openBtn = document.getElementById("openMenu");
+      const closeBtn = document.getElementById("closeMenu");
+      const mobileMenu = document.getElementById("mobileMenu");
 
-        openBtn.addEventListener("click", function () {
-            mobileMenu.classList.remove("hidden");
-        }); 
+      openBtn.addEventListener("click", function () {
+        mobileMenu.classList.remove("hidden");
+      });
 
-        closeBtn.addEventListener("click", function () {
-            mobileMenu.classList.add("hidden");
-        });
+      closeBtn.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+      });
     });
-</script>
+  </script>
 </body>
 
 </html>
