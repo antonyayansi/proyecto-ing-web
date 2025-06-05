@@ -4,18 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página X</title>
+  <title>Productos</title>
   <link href="../styles/global.css" rel="stylesheet" />
   <script src="../scripts/tailwindcss.js"></script>
 </head>
 
 <body class="font-sans">
+  <?php
+  // Incluir el archivo de conexión a la base de datos
+  include_once '../../config/conexion.php';
 
+  $productos = [];
+  $query = "SELECT * FROM productos";
+  $resultado = mysqli_query($con, $query);
+
+  if ($resultado) {
+      while ($fila = mysqli_fetch_assoc($resultado)) {
+          $productos[] = $fila;
+      }
+  } else {
+      echo "Error en la consulta: " . mysqli_error($con);
+  }
+  mysqli_close($con);
+
+  ?>
   <!-- Cabecera -->
   <header class="bg-white sticky top-0 z-50 border-b border-gray-200">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="../../index.html" class="-m-1.5 p-1.5">
+        <a href="../../index.php" class="-m-1.5 p-1.5">
           <span class="sr-only">SIADEG</span>
           <img class="h-10 w-auto" src="../img/logo-siadeg.webp" alt="">
         </a>
@@ -31,14 +48,17 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="./manuales.html" class="text-sm/6 font-semibold text-gray-900 text-indigo-600">Manuales</a>
-        <a href="./productos.html" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Productos</a>
-        <a href="./acerca.html" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Acerca
+        <a href="./manuales.php"
+          class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Manuales</a>
+        <a href="./productos.php"
+          class="text-sm/6 font-semibold text-gray-900 text-indigo-600">Productos</a>
+        <a href="./acerca.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Acerca
           de</a>
-        <a href="./contacto.html" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
+        <a href="./contacto.php"
+          class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="./descargas.html"
+        <a href="./descargas.php"
           class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">Descargar
           <span aria-hidden="true">&rarr;</span></a>
       </div>
@@ -65,18 +85,18 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a href="./manuales.html"
+              <a href="./manuales.php"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Manuales</a>
-              <a href="./productos.html"
+              <a href="./productos.php"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Productos</a>
-              <a href="./acerca.html"
+              <a href="./acerca.php"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Acerca
                 de</a>
-              <a href="./contacto.html"
+              <a href="./contacto.php"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Contacto</a>
             </div>
             <div class="py-6">
-              <a href="./descargas.html"
+              <a href="./descargas.php"
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                 Descargar</a>
             </div>
@@ -87,80 +107,64 @@
   </header>
 
   <!-- CONTENIDO -->
-  <section class="bg-white py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl lg:mx-0">
-        <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Manuales</h2>
-        <p class="mt-2 text-lg/8 text-gray-600">
-          Aquí encontrarás los manuales de usuario de SIADEG, donde podrás aprender a utilizar todas las funcionalidades
-          del sistema.
-        </p>
-      </div>
-      <div
-        class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        <article class="flex max-w-xl flex-col items-start justify-between">
-          <div class="flex items-center gap-x-4 text-xs">
-            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2025</time>
-            <a href="#"
-              class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Gubernamental</a>
-          </div>
-          <div class="group relative">
-            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a>
-                <span class="absolute inset-0"></span>
-                Requerimiento BB, SS y CAS
-              </a>
-            </h3>
-          </div>
-          <iframe class="w-full rounded-md mt-2 h-[200px]"
-            src="https://www.youtube.com/embed/5ALwWIT1mtw?si=-pStaA8DhebOzHnM" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </article>
-        <article class="flex max-w-xl flex-col items-start justify-between">
-          <div class="flex items-center gap-x-4 text-xs">
-            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2025</time>
-            <a href="#"
-              class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Gubernamental</a>
-          </div>
-          <div class="group relative">
-            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a>
-                <span class="absolute inset-0"></span>
-                Mantenimiento de Personales
-              </a>
-            </h3>
-          </div>
-          <iframe class="w-full rounded-md mt-2 h-[200px]"
-            src="https://www.youtube.com/embed/9OoxdjjhFbw?si=JZWraZep7GcubAId" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </article>
-        <article class="flex max-w-xl flex-col items-start justify-between">
-          <div class="flex items-center gap-x-4 text-xs">
-            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2025</time>
-            <a href="#"
-              class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Gubernamental</a>
-          </div>
-          <div class="group relative">
-            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a>
-                <span class="absolute inset-0"></span>
-                Mantenimiento de Usuarios
-              </a>
-            </h3>
-          </div>
-          <iframe class="w-full rounded-md mt-2 h-[200px]"
-            src="https://www.youtube.com/embed/3nkyQwro5To?si=8MJpc0B1vRGJVZnF" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </article>
+  <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl" aria-hidden="true">
+      <div class="mx-auto aspect-1155/678 w-[72.1875rem] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
       </div>
     </div>
-  </section>
+    <div class="mx-auto max-w-4xl text-center">
+      <h2 class="text-base/7 font-semibold text-indigo-600">Precios</h2>
+      <p class="mt-2 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl">Escoge el plan adecuado</p>
+    </div>
+    <p class="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-gray-600 sm:text-xl/8">Elige un
+      plan asequible que esté repleto de las mejores características para su entidad.</p>
+    <div
+      class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
+      <div
+        class="rounded-3xl rounded-t-3xl bg-white/60 p-8 ring-1 ring-gray-900/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl">
+        <h3 id="tier-hobby" class="text-base/7 font-semibold text-indigo-600"><?php  echo ucfirst($productos[0]['tipo']); ?></h3>
+        <p class="mt-4 flex items-baseline gap-x-2">
+          <span class="text-5xl font-semibold tracking-tight text-gray-900">S/. <?php echo $productos[0]['precio']; ?></span>
+          <span class="text-base text-gray-500">/mensual</span>
+        </p>
+        <p class="mt-6 text-base/7 text-gray-600">
+         <?php echo $productos[0]['descripcion']; ?>
+        </p>
+        <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 sm:mt-10">
+          <?php
+          foreach (explode('-', $productos[0]['caracteristicas']) as $caracteristica) {
+              echo '<li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>' . trim($caracteristica) . '</li>';
+          }
+          ?>
+        </ul>
+        <a href="#" aria-describedby="tier-hobby"
+          class="mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-indigo-600 ring-1 ring-indigo-200 ring-inset hover:ring-indigo-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:mt-10">
+          Escoger plan
+        </a>
+      </div>
+      <div class="relative rounded-3xl bg-gray-900 p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10">
+        <h3 id="tier-enterprise" class="text-base/7 font-semibold text-indigo-400"><?php  echo ucfirst($productos[1]['tipo']); ?></h3>
+        <p class="mt-4 flex items-baseline gap-x-2">
+          <span class="text-5xl font-semibold tracking-tight text-white">S/. <?php echo $productos[1]['precio']; ?></span>
+          <span class="text-base text-gray-400">/mensual</span>
+        </p>
+        <p class="mt-6 text-base/7 text-gray-300">
+          <?php echo $productos[1]['descripcion']; ?>
+        </p>
+        <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-300 sm:mt-10">
+          <?php
+          foreach (explode('-', $productos[1]['caracteristicas']) as $caracteristica) {
+              echo '<li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>' . trim($caracteristica) . '</li>';
+          }
+          ?>
+        </ul>
+        <a href="#" aria-describedby="tier-enterprise"
+          class="mt-8 block rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 sm:mt-10">Comenzar
+          hoy</a>
+      </div>
+    </div>
+  </div>
 
 
   <!-- Pie de pagina -->
@@ -199,7 +203,7 @@
 
         openBtn.addEventListener("click", function () {
             mobileMenu.classList.remove("hidden");
-        }); 
+        });
 
         closeBtn.addEventListener("click", function () {
             mobileMenu.classList.add("hidden");

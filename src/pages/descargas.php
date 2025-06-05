@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página X</title>
+  <title>Descargas</title>
   <link href="../styles/global.css" rel="stylesheet" />
   <script src="../scripts/tailwindcss.js"></script>
 </head>
@@ -15,7 +15,7 @@
   <header class="bg-white/50 backdrop-blur sticky top-0 z-50 shadow">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="../../index.html" class="-m-1.5 p-1.5">
+        <a href="../../index.php" class="-m-1.5 p-1.5">
           <span class="sr-only">SIADEG</span>
           <img class="h-10 w-auto" src="../img/logo-siadeg.webp" alt="">
         </a>
@@ -31,14 +31,14 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="./manuales.html" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Manuales</a>
-        <a href="./productos.html" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Productos</a>
-        <a href="./acerca.html" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Acerca
+        <a href="./manuales.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Manuales</a>
+        <a href="./productos.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Productos</a>
+        <a href="./acerca.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Acerca
           de</a>
-        <a href="./contacto.html" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
+        <a href="./contacto.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="./descargas.html"
+        <a href="./descargas.php"
           class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">Descargar
           <span aria-hidden="true">&rarr;</span></a>
       </div>
@@ -50,7 +50,7 @@
       <div
         class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div class="flex items-center justify-between">
-          <a href="../../index.html" class="-m-1.5 p-1.5">
+          <a href="../../index.php" class="-m-1.5 p-1.5">
             <span class="sr-only">SIADEG</span>
             <img class="h-8 w-auto" src="../img/logo-siadeg.webp" alt="">
           </a>
@@ -65,18 +65,18 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a href="./manuales.html"
+              <a href="./manuales.php"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Manuales</a>
-              <a href="./productos.html"
+              <a href="./productos.php"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Productos</a>
-              <a href="./acerca.html"
+              <a href="./acerca.php"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Acerca
                 de</a>
-              <a href="./contacto.html"
+              <a href="./contacto.php"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Contacto</a>
             </div>
             <div class="py-6">
-              <a href="./descargas.html"
+              <a href="./descargas.php"
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                 Descargar</a>
             </div>

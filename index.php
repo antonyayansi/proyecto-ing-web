@@ -35,17 +35,17 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="src/pages/manuales.html"
+                <a href="src/pages/manuales.php"
                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Manuales</a>
-                <a href="src/pages/productos.html"
+                <a href="src/pages/productos.php"
                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Productos</a>
-                <a href="src/pages/acerca.html"
+                <a href="src/pages/acerca.php"
                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Acerca de</a>
-                <a href="src/pages/contacto.html"
+                <a href="src/pages/contacto.php"
                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="src/pages/descargas.html"
+                <a href="src/pages/descargas.php"
                     class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">Descargar
                     <span aria-hidden="true">&rarr;</span></a>
             </div>
@@ -72,18 +72,18 @@
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-2 py-6">
-                            <a href="src/pages/manuales.html"
+                            <a href="src/pages/manuales.php"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Manuales</a>
-                            <a href="src/pages/productos.html"
+                            <a href="src/pages/productos.php"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Productos</a>
-                            <a href="src/pages/acerca.html"
+                            <a href="src/pages/acerca.php"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Acerca
                                 de</a>
-                            <a href="src/pages/contacto.html"
+                            <a href="src/pages/contacto.php"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Contacto</a>
                         </div>
                         <div class="py-6">
-                            <a href="src/pages/descargas.html"
+                            <a href="src/pages/descargas.php"
                                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                                 Descargar</a>
                         </div>
@@ -106,7 +106,7 @@
             <div class="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div
                     class="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                    Todos nuestro productos <a href="src/pages/productos.html"
+                    Todos nuestro productos <a href="src/pages/productos.php"
                         class="font-semibold text-indigo-600"><span class="absolute inset-0"
                             aria-hidden="true"></span>Leer más <span aria-hidden="true">&rarr;</span></a>
                 </div>
@@ -119,9 +119,9 @@
                 <p class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">Les damos la bienvenida a
                     nuestra Página Web, aquí les brindaremos toda la información acerca de nuestros productos.</p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <a href="src/pages/descargas.html"
+                    <a href="src/pages/descargas.php"
                         class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Descargar</a>
-                    <a href="src/pages/manuales.html" class="text-sm/6 font-semibold text-gray-900">Manuales <span
+                    <a href="src/pages/manuales.php" class="text-sm/6 font-semibold text-gray-900">Manuales <span
                             aria-hidden="true">→</span></a>
                 </div>
             </div>
