@@ -37,10 +37,19 @@
           de</a>
         <a href="./contacto.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
         <a href="./descargas.php"
-          class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">Descargar
-          <span aria-hidden="true">&rarr;</span></a>
+          class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">
+          Descargar <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a href="./login.php" class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-4 py-1.5
+          text-sm font-semibold text-white shadow-md transition
+          hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          Login
+        </a>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -89,7 +98,8 @@
   <!-- CONTENIDO -->
   <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
     <div class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl" aria-hidden="true">
-      <div id="smoke" class="mx-auto aspect-1155/678 w-[72.1875rem] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+      <div id="smoke"
+        class="mx-auto aspect-1155/678 w-[72.1875rem] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
         style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
       </div>
     </div>
@@ -111,19 +121,26 @@
           <span
             class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">Mision</span>
           <h2 class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">Nuestra mision</h2>
-          <p class="leading-relaxed mb-8">Brindar software con la tecnología más innovadora de acuerdo a las necesidades de cada usuario, empresa privada o pública.
+          <p class="leading-relaxed mb-8">Brindar software con la tecnología más innovadora de acuerdo a las necesidades
+            de cada usuario, empresa privada o pública.
 
-            Implementar nuevas soluciones prácticas y creativas para incrementar la competitividad y productividad de manera más eficiente de todos nuestros clientes adaptadas a sus necesidades.
-            
-            Comprometernos con los problemas de nuestros clientes de forma eficaz para convertirnos en su socio de confianza, brindandoles una adecuada atención, soporte técnico de calidad y capacitación permanente.</p>
+            Implementar nuevas soluciones prácticas y creativas para incrementar la competitividad y productividad de
+            manera más eficiente de todos nuestros clientes adaptadas a sus necesidades.
+
+            Comprometernos con los problemas de nuestros clientes de forma eficaz para convertirnos en su socio de
+            confianza, brindandoles una adecuada atención, soporte técnico de calidad y capacitación permanente.</p>
         </div>
         <div class="p-12 md:w-1/2 flex flex-col items-start">
           <span
             class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">Vision</span>
           <h2 class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">Nuestra Vision</h2>
-          <p class="leading-relaxed mb-8">Queremos ser una empresa líder en el mercado de la informática, brindando software personalizado para todo tipo de necesidad.
+          <p class="leading-relaxed mb-8">Queremos ser una empresa líder en el mercado de la informática, brindando
+            software personalizado para todo tipo de necesidad.
 
-            <span>Ser la mejor empresa en servicio de atención al cliente (Análisis, diseño, desarrollo, soporte técnico y capacitación), así obtener los estándares y certificados de reconocimiento y aceptación internacional "ISO 9000"</span></p>  
+            <span>Ser la mejor empresa en servicio de atención al cliente (Análisis, diseño, desarrollo, soporte técnico
+              y capacitación), así obtener los estándares y certificados de reconocimiento y aceptación internacional
+              "ISO 9000"</span>
+          </p>
         </div>
       </div>
     </div>

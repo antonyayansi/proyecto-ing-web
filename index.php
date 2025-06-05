@@ -44,10 +44,21 @@
                 <a href="src/pages/contacto.php"
                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
             </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="src/pages/descargas.php"
-                    class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">Descargar
-                    <span aria-hidden="true">&rarr;</span></a>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+                <a href="./descargas.php"
+                    class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">
+                    Descargar <span aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="src/pages/login.php" class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-4 py-1.5
+          text-sm font-semibold text-white shadow-md transition
+          hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Login
+                </a>
             </div>
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
@@ -82,10 +93,21 @@
                             <a href="src/pages/contacto.php"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Contacto</a>
                         </div>
-                        <div class="py-6">
-                            <a href="src/pages/descargas.php"
-                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                                Descargar</a>
+                        <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+                            <a href="./descargas.php"
+                                class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">
+                                Descargar <span aria-hidden="true">&rarr;</span>
+                            </a>
+                            <a href="src/pages/login.php" class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-4 py-1.5
+          text-sm font-semibold text-white shadow-md transition
+          hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                                Login
+                            </a>
                         </div>
                     </div>
                 </div>

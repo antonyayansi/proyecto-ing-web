@@ -19,11 +19,11 @@
   $resultado = mysqli_query($con, $query);
 
   if ($resultado) {
-      while ($fila = mysqli_fetch_assoc($resultado)) {
-          $productos[] = $fila;
-      }
+    while ($fila = mysqli_fetch_assoc($resultado)) {
+      $productos[] = $fila;
+    }
   } else {
-      echo "Error en la consulta: " . mysqli_error($con);
+    echo "Error en la consulta: " . mysqli_error($con);
   }
   mysqli_close($con);
 
@@ -48,19 +48,25 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="./manuales.php"
-          class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Manuales</a>
-        <a href="./productos.php"
-          class="text-sm/6 font-semibold text-gray-900 text-indigo-600">Productos</a>
+        <a href="./manuales.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Manuales</a>
+        <a href="./productos.php" class="text-sm/6 font-semibold text-gray-900 text-indigo-600">Productos</a>
         <a href="./acerca.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Acerca
           de</a>
-        <a href="./contacto.php"
-          class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
+        <a href="./contacto.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
         <a href="./descargas.php"
-          class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">Descargar
-          <span aria-hidden="true">&rarr;</span></a>
+          class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">
+          Descargar <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a href="./login.php" class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-4 py-1.5
+          text-sm font-semibold text-white shadow-md transition
+          hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          Login
+        </a>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -115,7 +121,8 @@
     </div>
     <div class="mx-auto max-w-4xl text-center">
       <h2 class="text-base/7 font-semibold text-indigo-600">Precios</h2>
-      <p class="mt-2 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl">Escoge el plan adecuado</p>
+      <p class="mt-2 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl">Escoge el plan
+        adecuado</p>
     </div>
     <p class="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-gray-600 sm:text-xl/8">Elige un
       plan asequible que esté repleto de las mejores características para su entidad.</p>
@@ -123,18 +130,21 @@
       class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
       <div
         class="rounded-3xl rounded-t-3xl bg-white/60 p-8 ring-1 ring-gray-900/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl">
-        <h3 id="tier-hobby" class="text-base/7 font-semibold text-indigo-600"><?php  echo ucfirst($productos[0]['tipo']); ?></h3>
+        <h3 id="tier-hobby" class="text-base/7 font-semibold text-indigo-600">
+          <?php echo ucfirst($productos[0]['tipo']); ?>
+        </h3>
         <p class="mt-4 flex items-baseline gap-x-2">
-          <span class="text-5xl font-semibold tracking-tight text-gray-900">S/. <?php echo $productos[0]['precio']; ?></span>
+          <span class="text-5xl font-semibold tracking-tight text-gray-900">S/.
+            <?php echo $productos[0]['precio']; ?></span>
           <span class="text-base text-gray-500">/mensual</span>
         </p>
         <p class="mt-6 text-base/7 text-gray-600">
-         <?php echo $productos[0]['descripcion']; ?>
+          <?php echo $productos[0]['descripcion']; ?>
         </p>
         <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 sm:mt-10">
           <?php
           foreach (explode('-', $productos[0]['caracteristicas']) as $caracteristica) {
-              echo '<li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>' . trim($caracteristica) . '</li>';
+            echo '<li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>' . trim($caracteristica) . '</li>';
           }
           ?>
         </ul>
@@ -144,9 +154,12 @@
         </a>
       </div>
       <div class="relative rounded-3xl bg-gray-900 p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10">
-        <h3 id="tier-enterprise" class="text-base/7 font-semibold text-indigo-400"><?php  echo ucfirst($productos[1]['tipo']); ?></h3>
+        <h3 id="tier-enterprise" class="text-base/7 font-semibold text-indigo-400">
+          <?php echo ucfirst($productos[1]['tipo']); ?>
+        </h3>
         <p class="mt-4 flex items-baseline gap-x-2">
-          <span class="text-5xl font-semibold tracking-tight text-white">S/. <?php echo $productos[1]['precio']; ?></span>
+          <span class="text-5xl font-semibold tracking-tight text-white">S/.
+            <?php echo $productos[1]['precio']; ?></span>
           <span class="text-base text-gray-400">/mensual</span>
         </p>
         <p class="mt-6 text-base/7 text-gray-300">
@@ -155,7 +168,7 @@
         <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-300 sm:mt-10">
           <?php
           foreach (explode('-', $productos[1]['caracteristicas']) as $caracteristica) {
-              echo '<li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>' . trim($caracteristica) . '</li>';
+            echo '<li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>' . trim($caracteristica) . '</li>';
           }
           ?>
         </ul>
@@ -197,19 +210,19 @@
   </footer>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const openBtn = document.getElementById("openMenu");
-        const closeBtn = document.getElementById("closeMenu");
-        const mobileMenu = document.getElementById("mobileMenu");
+      const openBtn = document.getElementById("openMenu");
+      const closeBtn = document.getElementById("closeMenu");
+      const mobileMenu = document.getElementById("mobileMenu");
 
-        openBtn.addEventListener("click", function () {
-            mobileMenu.classList.remove("hidden");
-        });
+      openBtn.addEventListener("click", function () {
+        mobileMenu.classList.remove("hidden");
+      });
 
-        closeBtn.addEventListener("click", function () {
-            mobileMenu.classList.add("hidden");
-        });
+      closeBtn.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+      });
     });
-</script>
+  </script>
 </body>
 
 </html>

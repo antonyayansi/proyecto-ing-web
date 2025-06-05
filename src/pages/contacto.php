@@ -31,19 +31,25 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="./manuales.php"
-          class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Manuales</a>
-        <a href="./productos.php"
-          class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Productos</a>
+        <a href="./manuales.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Manuales</a>
+        <a href="./productos.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Productos</a>
         <a href="./acerca.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Acerca
           de</a>
-        <a href="./contacto.php"
-          class="text-sm/6 font-semibold text-gray-900 text-indigo-600">Contacto</a>
+        <a href="./contacto.php" class="text-sm/6 font-semibold text-gray-900 text-indigo-600">Contacto</a>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
         <a href="./descargas.php"
-          class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">Descargar
-          <span aria-hidden="true">&rarr;</span></a>
+          class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">
+          Descargar <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a href="./login.php" class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-4 py-1.5
+          text-sm font-semibold text-white shadow-md transition
+          hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          Login
+        </a>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -101,8 +107,7 @@
         class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
         <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
           marginwidth="0" scrolling="no"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3878.8021718281557!2d-71.90504!3d-13.547724!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916dd5d9f35d234b%3A0x808c0b2b501e27de!2sSIADEG%20E.I.R.L.!5e0!3m2!1ses-419!2spe!4v1746154170008!5m2!1ses-419!2spe"
-          ></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3878.8021718281557!2d-71.90504!3d-13.547724!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916dd5d9f35d234b%3A0x808c0b2b501e27de!2sSIADEG%20E.I.R.L.!5e0!3m2!1ses-419!2spe!4v1746154170008!5m2!1ses-419!2spe"></iframe>
         <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
           <div class="lg:w-1/2 px-6">
             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">SIADEG E.I.R.L</h2>
@@ -175,18 +180,19 @@
   </footer>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const openBtn = document.getElementById("openMenu");
-        const closeBtn = document.getElementById("closeMenu");
-        const mobileMenu = document.getElementById("mobileMenu");
+      const openBtn = document.getElementById("openMenu");
+      const closeBtn = document.getElementById("closeMenu");
+      const mobileMenu = document.getElementById("mobileMenu");
 
-        openBtn.addEventListener("click", function () {
-            mobileMenu.classList.remove("hidden");
-        });
+      openBtn.addEventListener("click", function () {
+        mobileMenu.classList.remove("hidden");
+      });
 
-        closeBtn.addEventListener("click", function () {
-            mobileMenu.classList.add("hidden");
-        });
+      closeBtn.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+      });
     });
-</script>
+  </script>
 </body>
+
 </html>
