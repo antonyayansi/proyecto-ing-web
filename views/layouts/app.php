@@ -130,7 +130,7 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
 
                     <!-- Separador: una línea ligeramente opaca con algo de margen arriba/abajo -->
                     <li aria-hidden="true" class="mt-2 mb-2">
-                        <div class="border-t border-white/20"></div>
+                        <div class="border-t border-gray-200 border-white/20"></div>
                     </li>
 
                     <!-- BOTÓN CERRAR SESIÓN (no necesita activo/inactivo) -->
@@ -197,7 +197,7 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
 
 
                     </div>
-                    <footer class="mt-auto bg-white text-gray-600 body-font border-t">
+                    <footer class="mt-auto bg-white text-gray-600 body-font border-t border-gray-200">
                         <div class="container mx-auto px-5 py-8 flex flex-col sm:flex-row items-center">
                             <a
                                 class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">

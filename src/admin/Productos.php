@@ -30,25 +30,25 @@ ob_start();
     <table class="min-w-full bg-white border border-gray-200">
         <thead>
             <tr>
-                <th class="py-2 px-4 border-b">ID</th>
-                <th class="py-2 px-4 border-b">Nombre</th>
-                <th class="py-2 px-4 border-b">Descripción</th>
-                <th class="py-2 px-4 border-b">Precio</th>
-                <th class="py-2 px-4 border-b">Tipo</th>
-                <th class="py-2 px-4 border-b">Acciones</th>
+                <th class="py-2 px-4 border-b border-gray-200">ID</th>
+                <th class="py-2 px-4 border-b border-gray-200">Nombre</th>
+                <th class="py-2 px-4 border-b border-gray-200">Descripción</th>
+                <th class="py-2 px-4 border-b border-gray-200">Precio</th>
+                <th class="py-2 px-4 border-b border-gray-200">Tipo</th>
+                <th class="py-2 px-4 border-b border-gray-200">Acciones</th>
             </tr>
         </thead>
         <tbody>
             <?php
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td class='py-2 px-4 border-b'>" . htmlspecialchars($row['id']) . "</td>";
-                echo "<td class='py-2 px-4 border-b'>" . htmlspecialchars($row['nombre']) . "</td>";
-                echo "<td class='py-2 px-4 border-b'>" . htmlspecialchars($row['descripcion']) . "</td>";
-                echo "<td class='py-2 px-4 border-b'>" . htmlspecialchars($row['precio']) . "</td>";
-                echo "<td class='py-2 px-4 border-b'>" . htmlspecialchars($row['tipo']) . "</td>";
-                echo "<td class='py-2 px-4 border-b'>";
-                echo "<a href='edit.php?id=" . $row['id'] . "' class='text-blue-500 hover:underline'>Editar</a> | ";
+                echo "<td class='py-2 px-4 border-b border-gray-200'>" . htmlspecialchars($row['id']) . "</td>";
+                echo "<td class='py-2 px-4 border-b border-gray-200'>" . htmlspecialchars($row['nombre']) . "</td>";
+                echo "<td class='py-2 px-4 border-b border-gray-200'>" . htmlspecialchars($row['descripcion']) . "</td>";
+                echo "<td class='py-2 px-4 border-b border-gray-200'>" . htmlspecialchars($row['precio']) . "</td>";
+                echo "<td class='py-2 px-4 border-b border-gray-200'>" . htmlspecialchars($row['tipo']) . "</td>";
+                echo "<td class='py-2 px-4 border-b border-gray-200'>";
+                echo "<a href='producto_update.php?id=" . $row['id'] . "' class='text-blue-500 hover:underline'>Editar</a> | ";
                 echo "<a href='producto_delete.php?id=" . $row['id'] . "' class='text-red-500 hover:underline'>Eliminar</a>";
                 echo "</td>";
                 echo "</tr>";
