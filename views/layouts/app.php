@@ -16,9 +16,9 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />¿
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title><?= $pageTitle ?? 'Panel de Control' ?></title>
     <link href="../styles/global.css" rel="stylesheet" />
     <script src="../scripts/tailwindcss.js"></script>
 </head>
@@ -74,22 +74,14 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
 
                     <!-- BOTÓN MIS PRODUCTOS -->
                     <li>
-                        <a href="Productos.php">
+                        <a href="productos.php">
                             <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
-               text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
-               <?= ($currentPage === 'Productos.php') ? $activeBg : $inactiveBg ?>">
-                                <!-- Icono de Certificado / Medalla (puedes cambiarlo por cualquier otro SVG) -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true" class="w-5 h-5 text-inherit">
-                                    <path fill-rule="evenodd" d="M12 2a5 5 0 00-5 5v6.586l-1.707 1.707a1 1 
-                     0 000 1.414L7 18.414V22l5-2 5 
-                     2v-3.586l1.707-1.707a1 1 0 
-                     000-1.414L17 13.586V7a5 5 0 00-5-5zm0 
-                     2a3 3 0 013 3v6.586l1.293 1.293a.5.5 
-                     0 01.146.354V20.5l-3.5-1.4-3.5 
-                     1.4v-1.267a.5.5 0 01.146-.354L9 
-                     13.586V7a3 3 0 013-3zm-1 
-                     5v2h2V9h-2z" clip-rule="evenodd" />
+             text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
+             <?= ($currentPage === 'productos.php') ? $activeBg : $inactiveBg ?>">
+                                <!-- SVG de productos -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2"
+                                        d="M19 13.5v4L12 22l-7-4.5v-4m7 8.5v-8.5m6.5-5l-6.5-4L15.5 2L22 6zm-13 0l6.5-4L8.5 2L2 6zm13 .5L12 13l3.5 2.5l6.5-4zm-13 0l6.5 4l-3.5 2.5l-6.5-4z" />
                                 </svg>
                                 <p
                                     class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
@@ -98,36 +90,39 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
                             </button>
                         </a>
                     </li>
-
-                    <!-- OTROS BOTONES (tablas, notificaciones, etc.) -->
                     <li>
-                        <a href="tablas.php">
+                        <a href="manuales.php">
                             <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
                text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
-               <?= ($currentPage === 'tablas.php') ? $activeBg : $inactiveBg ?>">
-                                <!-- Aquí tu SVG de “tablas” -->
-                                <svg … class="w-5 h-5 text-inherit">…</svg>
+               <?= ($currentPage === 'manuales.php') ? $activeBg : $inactiveBg ?>">
+                                <!-- Icono de Certificado / Medalla (puedes cambiarlo por cualquier otro SVG) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M6 22q-.825 0-1.412-.587T4 20V4q0-.825.588-1.412T6 2h12q.825 0 1.413.588T20 4v16q0 .825-.587 1.413T18 22zm5-11l2.5-1.5L16 11V4h-5z" />
+                                </svg>
                                 <p
                                     class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
-                                    Tables
+                                    Manuales
                                 </p>
                             </button>
                         </a>
                     </li>
 
+                    <!-- OTROS BOTONES (tablas, notificaciones, etc.) -->
                     <li>
-                        <a href="notificaciones.php">
+                        <a href="versiones.php">
                             <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
-             text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
-             <?= ($currentPage === 'notificaciones.php') ? $activeBg : $inactiveBg ?>">
-                                <!-- SVG de “notificaciones” -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true" class="w-5 h-5 text-inherit">
-                                    <!-- … contenido del SVG … -->
+               text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
+               <?= ($currentPage === 'versiones.php') ? $activeBg : $inactiveBg ?>">
+                                <!-- Aquí tu SVG de “tablas” -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="1.5"
+                                        d="M17 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7v10M17 7v1c0 2.5-2 3-2 3l-6 2s-2 .5-2 3v1" />
                                 </svg>
                                 <p
                                     class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
-                                    Notifications
+                                    Versiones
                                 </p>
                             </button>
                         </a>
@@ -145,10 +140,7 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
                                 class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
              text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize text-white hover:bg-white/10 active:bg-white/30">
                                 <!-- SVG de “cerrar sesión” -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true" class="w-5 h-5 text-inherit">
-                                    <!-- … contenido del SVG … -->
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5z"/></svg>
                                 <p
                                     class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
                                     Cerrar Sesión
@@ -190,85 +182,10 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
                             class="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-gray-900">
                             home</h6>
                     </div>
-                    <div class="flex items-center">
-                        <div class="mr-auto md:mr-4 md:w-56">
-                            <div class="relative w-full min-w-[200px] h-10">
-                                <input
-                                    class="peer w-full h-full bg-transparent text-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-blue-500"
-                                    placeholder=" ">
-                                <label
-                                    class="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal peer-placeholder-shown:text-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-blue-gray-400 peer-focus:text-blue-500 before:border-blue-gray-200 peer-focus:before:border-blue-500 after:border-blue-gray-200 peer-focus:after:border-blue-500">Type
-                                    here</label>
-                            </div>
-                        </div>
-                        <button
-                            class="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 grid xl:hidden"
-                            type="button">
-                            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true" stroke-width="3" class="h-6 w-6 text-blue-gray-500">
-                                    <path fill-rule="evenodd"
-                                        d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </span>
-                        </button>
-                        <a href="#">
-                            <button
-                                class="middle none font-sans font-bold center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 hidden items-center gap-1 px-4 xl:flex"
-                                type="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true" class="h-5 w-5 text-blue-gray-500">
-                                    <path fill-rule="evenodd"
-                                        d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>Sign In </button>
-                            <button
-                                class="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 grid xl:hidden"
-                                type="button">
-                                <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        aria-hidden="true" class="h-5 w-5 text-blue-gray-500">
-                                        <path fill-rule="evenodd"
-                                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </span>
-                            </button>
-                        </a>
-                        <button
-                            class="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30"
-                            type="button">
-                            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true" class="h-5 w-5 text-blue-gray-500">
-                                    <path fill-rule="evenodd"
-                                        d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </span>
-                        </button>
-                        <button aria-expanded="false" aria-haspopup="menu" id=":r2:"
-                            class="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30"
-                            type="button">
-                            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true" class="h-5 w-5 text-blue-gray-500">
-                                    <path fill-rule="evenodd"
-                                        d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </span>
-                        </button>
-                    </div>
                 </div>
             </nav>
             <div class="">
-                <?php
-                if (isset($pageContent)) {
-                    echo $pageContent;
-                }
-                ?>
+                <?= $pageContent ?? '<p>Error cargando contenido.</p>' ?>
             </div>
             <div class="flex flex-col min-h-screen">
 
