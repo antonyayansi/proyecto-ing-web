@@ -10,6 +10,12 @@
 </head>
 
 <body class="font-sans">
+  <?php 
+  include_once __DIR__ . '/../layouts/header.php';
+
+  $sql = "SELECT * FROM versiones WHERE tipo = 'gubernamental' ORDER BY fecha_lanzamiento DESC";
+
+  ?>
 
   <!-- HEADER -->
   <header class="bg-white/50 backdrop-blur sticky top-0 z-50 shadow">
