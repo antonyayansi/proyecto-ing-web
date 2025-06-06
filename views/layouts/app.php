@@ -46,88 +46,111 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
             <div class="m-4">
                 <ul>
                     <!-- BOTÓN DASHBOARD -->
-                    <li>
-                        <a href="dashboard.php">
-                            <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
+                    <?php
+                    if ($_SESSION['rol'] === 'ADMIN'): ?>
+                        <li>
+                            <a href="dashboard.php">
+                                <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
                text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
                <?= ($currentPage === 'dashboard.php') ? $activeBg : $inactiveBg ?>">
-                                <!-- Icono de Dashboard -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true" class="w-5 h-5 text-inherit">
-                                    <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 
+                                    <!-- Icono de Dashboard -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        aria-hidden="true" class="w-5 h-5 text-inherit">
+                                        <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 
                    101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 
                    8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
-                                    <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 
+                                        <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 
                    1.035-.84 1.875-1.875 1.875H15a.75.75 0 
                    01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 
                    00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 
                    1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 
                    00.091-.086L12 5.43z" />
-                                </svg>
-                                <p
-                                    class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
-                                    Dashboard
-                                </p>
-                            </button>
-                        </a>
-                    </li>
+                                    </svg>
+                                    <p
+                                        class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
+                                        Dashboard
+                                    </p>
+                                </button>
+                            </a>
+                        </li>
 
-                    <!-- BOTÓN MIS PRODUCTOS -->
-                    <li>
-                        <a href="productos.php">
-                            <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
+                        <!-- BOTÓN MIS PRODUCTOS -->
+                        <li>
+                            <a href="productos.php">
+                                <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
              text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
              <?= ($currentPage === 'productos.php') ? $activeBg : $inactiveBg ?>">
-                                <!-- SVG de productos -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path fill="none" stroke="currentColor" stroke-width="2"
-                                        d="M19 13.5v4L12 22l-7-4.5v-4m7 8.5v-8.5m6.5-5l-6.5-4L15.5 2L22 6zm-13 0l6.5-4L8.5 2L2 6zm13 .5L12 13l3.5 2.5l6.5-4zm-13 0l6.5 4l-3.5 2.5l-6.5-4z" />
-                                </svg>
-                                <p
-                                    class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
-                                    Mis productos
-                                </p>
-                            </button>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="manuales.php">
-                            <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
+                                    <!-- SVG de productos -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2"
+                                            d="M19 13.5v4L12 22l-7-4.5v-4m7 8.5v-8.5m6.5-5l-6.5-4L15.5 2L22 6zm-13 0l6.5-4L8.5 2L2 6zm13 .5L12 13l3.5 2.5l6.5-4zm-13 0l6.5 4l-3.5 2.5l-6.5-4z" />
+                                    </svg>
+                                    <p
+                                        class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
+                                        Mis productos
+                                    </p>
+                                </button>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="manuales.php">
+                                <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
                text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
                <?= ($currentPage === 'manuales.php') ? $activeBg : $inactiveBg ?>">
-                                <!-- Icono de Certificado / Medalla (puedes cambiarlo por cualquier otro SVG) -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M6 22q-.825 0-1.412-.587T4 20V4q0-.825.588-1.412T6 2h12q.825 0 1.413.588T20 4v16q0 .825-.587 1.413T18 22zm5-11l2.5-1.5L16 11V4h-5z" />
-                                </svg>
-                                <p
-                                    class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
-                                    Manuales
-                                </p>
-                            </button>
-                        </a>
-                    </li>
+                                    <!-- Icono de Certificado / Medalla (puedes cambiarlo por cualquier otro SVG) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M6 22q-.825 0-1.412-.587T4 20V4q0-.825.588-1.412T6 2h12q.825 0 1.413.588T20 4v16q0 .825-.587 1.413T18 22zm5-11l2.5-1.5L16 11V4h-5z" />
+                                    </svg>
+                                    <p
+                                        class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
+                                        Manuales
+                                    </p>
+                                </button>
+                            </a>
+                        </li>
 
-                    <!-- OTROS BOTONES (tablas, notificaciones, etc.) -->
-                    <li>
-                        <a href="versiones.php">
-                            <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
+                        <!-- OTROS BOTONES (tablas, notificaciones, etc.) -->
+                        <li>
+                            <a href="versiones.php">
+                                <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
                text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
                <?= ($currentPage === 'versiones.php') ? $activeBg : $inactiveBg ?>">
-                                <!-- Aquí tu SVG de “tablas” -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="1.5"
-                                        d="M17 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7v10M17 7v1c0 2.5-2 3-2 3l-6 2s-2 .5-2 3v1" />
-                                </svg>
-                                <p
-                                    class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
-                                    Versiones
-                                </p>
-                            </button>
-                        </a>
-                    </li>
-
+                                    <!-- Aquí tu SVG de “tablas” -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7v10M17 7v1c0 2.5-2 3-2 3l-6 2s-2 .5-2 3v1" />
+                                    </svg>
+                                    <p
+                                        class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
+                                        Versiones
+                                    </p>
+                                </button>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <?php
+                    if ($_SESSION['rol'] === 'USUARIO'): ?>
+                        <li>
+                            <a href="certificados.php">
+                                <button class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
+             text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize
+             <?= ($currentPage === 'certificados.php') ? $activeBg : $inactiveBg ?>">
+                                    <!-- SVG de certificados -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                                        <path fill="currentColor"
+                                            d="M126 136a6 6 0 0 1-6 6H72a6 6 0 0 1 0-12h48a6 6 0 0 1 6 6m-6-38H72a6 6 0 0 0 0 12h48a6 6 0 0 0 0-12m110 62.62V224a6 6 0 0 1-9 5.21l-25-14.3l-25 14.3a6 6 0 0 1-9-5.21v-26H40a14 14 0 0 1-14-14V56a14 14 0 0 1 14-14h176a14 14 0 0 1 14 14v31.38a49.91 49.91 0 0 1 0 73.24M196 86a38 38 0 1 0 38 38a38 38 0 0 0-38-38m-34 100v-25.38a50 50 0 0 1 56-81.51V56a2 2 0 0 0-2-2H40a2 2 0 0 0-2 2v128a2 2 0 0 0 2 2Zm56-17.11a49.91 49.91 0 0 1-44 0v44.77l19-10.87a6 6 0 0 1 6 0l19 10.87Z" />
+                                    </svg>
+                                    <p
+                                        class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
+                                        Mis certificados
+                                    </p>
+                                </button>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                     <!-- Separador: una línea ligeramente opaca con algo de margen arriba/abajo -->
                     <li aria-hidden="true" class="mt-2 mb-2">
                         <div class="border-t border-gray-200 border-white/20"></div>
@@ -140,7 +163,10 @@ $inactiveBg = 'text-white hover:bg-white/10 active:bg-white/30';
                                 class="middle none font-sans font-bold transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
              text-xs py-3 rounded-lg w-full flex items-center gap-4 px-4 capitalize text-white hover:bg-white/10 active:bg-white/30">
                                 <!-- SVG de “cerrar sesión” -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5z" />
+                                </svg>
                                 <p
                                     class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium">
                                     Cerrar Sesión

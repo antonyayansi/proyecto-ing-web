@@ -17,6 +17,8 @@
   ?>
   <!-- TODO: todo lo que iría dentro de <div class="p-4 xl:ml-80"> … -->
   <div class="container mx-auto px-4">
+    <?php
+                    if ($_SESSION['rol'] === 'ADMIN'): ?>
     <div class="mt-12">
       <div class="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-3">
         <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
@@ -275,6 +277,7 @@
         </div>
       </div>
     </div>
+    <?php endif;?>
   </div>
   <?php
   // Se guarda todo en $pageContent

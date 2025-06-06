@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Correo y contraseña son obligatorios.";
     } else {
         // 2. Buscar usuario en la base de datos
-        $sql = "SELECT id, nombre_completo, contrasena FROM usuarios WHERE correo = ?";
+        $sql = "SELECT id, nombre_completo, contrasena, rol FROM usuarios WHERE correo = ?";
         $stmt = mysqli_prepare($con, $sql);
         if ($stmt) {
             mysqli_stmt_bind_param($stmt, 's', $correo);
@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Credenciales correctas: crear sesión y redirigir
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_name'] = $user['nombre_completo'];
+                $_SESSION['rol'] = $user['rol'];
                 header('Location: ../admin/dashboard.php');
                 exit;
             } else {
