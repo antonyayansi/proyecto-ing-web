@@ -1,33 +1,33 @@
+<?php
+// src/admin/dashboard.php
+require_once __DIR__ . '/../../config/conexion.php';
+session_start();
+
+// 1) Verificar que el usuario esté logueado
+if (!isset($_SESSION['user_id'])) {
+  header('Location: ../pages/login.php');
+  exit;
+}
+
+// 2) Definir el título (opcional)
+$pageTitle = 'Dashboard';
+
+// 3) Capturar el contenido propio del dashboard
+ob_start();
+?>
+<!-- TODO: todo lo que iría dentro de <div class="p-4 xl:ml-80"> … -->
+<div class="container mx-auto px-4">
   <?php
-  // src/admin/dashboard.php
-  require_once __DIR__ . '/../../config/conexion.php';
-  session_start();
-
-  // 1) Verificar que el usuario esté logueado
-  if (!isset($_SESSION['user_id'])) {
-    header('Location: ../pages/login.php');
-    exit;
-  }
-
-  // 2) Definir el título (opcional)
-  $pageTitle = 'Dashboard';
-
-  // 3) Capturar el contenido propio del dashboard
-  ob_start();
-  ?>
-  <!-- TODO: todo lo que iría dentro de <div class="p-4 xl:ml-80"> … -->
-  <div class="container mx-auto px-4">
-    <?php
-                    if ($_SESSION['rol'] === 'ADMIN'): ?>
+  if ($_SESSION['rol'] === 'ADMIN'): ?>
     <div class="mt-12">
       <div class="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-3">
         <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
           <div
             class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-blue-600 to-blue-400 text-white shadow-blue-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M6 22q-.825 0-1.412-.587T4 20V4q0-.825.588-1.412T6 2h12q.825 0 1.413.588T20 4v16q0 .825-.587 1.413T18 22zm5-11l2.5-1.5L16 11V4h-5z" />
-                                </svg>
+              <path fill="currentColor"
+                d="M6 22q-.825 0-1.412-.587T4 20V4q0-.825.588-1.412T6 2h12q.825 0 1.413.588T20 4v16q0 .825-.587 1.413T18 22zm5-11l2.5-1.5L16 11V4h-5z" />
+            </svg>
           </div>
           <div class="p-4 text-right">
             <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Manuales
@@ -40,7 +40,7 @@
               $result = mysqli_query($con, $sql);
               $row = mysqli_fetch_assoc($result);
               echo htmlspecialchars($row['total']);
-              ?>  
+              ?>
             </h4>
           </div>
           <div class="border-t border-gray-200 p-4">
@@ -80,11 +80,10 @@
         <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
           <div
             class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-green-600 to-green-400 text-white shadow-green-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="1.5"
-                                        d="M17 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7v10M17 7v1c0 2.5-2 3-2 3l-6 2s-2 .5-2 3v1" />
-                                </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M17 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 7v10M17 7v1c0 2.5-2 3-2 3l-6 2s-2 .5-2 3v1" />
+            </svg>
           </div>
           <div class="p-4 text-right">
             <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">
@@ -98,7 +97,7 @@
               $result = mysqli_query($con, $sql);
               $row = mysqli_fetch_assoc($result);
               echo htmlspecialchars($row['total']);
-              ?> 
+              ?>
             </h4>
           </div>
           <div class="border-t border-gray-200 p-4">
@@ -277,12 +276,12 @@
         </div>
       </div>
     </div>
-    <?php endif;?>
-  </div>
-  <?php
-  // Se guarda todo en $pageContent
-  $pageContent = ob_get_clean();
+  <?php endif; ?>
+</div>
+<?php
+// Se guarda todo en $pageContent
+$pageContent = ob_get_clean();
 
-  // 4) Incluir la plantilla general,
-  // ajusta la ruta para llegar hasta views/layouts/app.php
-  require_once __DIR__ . '/../../views/layouts/app.php';
+// 4) Incluir la plantilla general,
+// ajusta la ruta para llegar hasta views/layouts/app.php
+require_once __DIR__ . '/../../views/layouts/app.php';

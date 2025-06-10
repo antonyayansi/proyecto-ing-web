@@ -60,7 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form action="login.php" method="POST"
             class="w-full max-w-lg px-10 py-8 mx-auto bg-white border rounded-lg shadow-2xl space-y-6">
             <h3 class="text-lg font-semibold">Ingrese sus credenciales</h3>
-
+            <?php if (isset($error)): ?>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <strong class="font-bold">¡Error!</strong>
+                    <span class="block sm:inline"><?= htmlspecialchars($error) ?></span>
+                </div>
+            <?php endif; ?>
             <div>
                 <label class="block py-1">Correo electrónico</label>
                 <input name="correo" type="email" required
