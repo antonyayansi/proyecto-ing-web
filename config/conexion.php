@@ -1,9 +1,9 @@
 <?php
 $servidor = "localhost";
-$usuario = "root";   // Usuario por defecto de XAMPP
-$password = "";       // Root en XAMPP normalmente no tiene password
-$base_datos = "sistema_db";
-$port = 3306;
+$usuario = "antony";   // Usuario por defecto de XAMPP
+$password = "77021318";       // Root en XAMPP normalmente no tiene password
+$base_datos = "siadeg";
+$port = 3307;
 
 $con = mysqli_connect($servidor, $usuario, $password, $base_datos, $port);
 

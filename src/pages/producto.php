@@ -4,35 +4,40 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Descargas</title>
+    <title>Producto</title>
     <link href="../styles/global.css" rel="stylesheet" />
     <script src="../scripts/tailwindcss.js"></script>
+    <script src="https://unpkg.com/@dankira/niubiz/dist/niubiz.umd.js"></script>
 </head>
 
 <body class="font-sans">
     <?php
-    
     // Incluir el archivo de conexión a la base de datos
     include_once '../../config/conexion.php';
-    
-    $versiones = [];
-    $query = "SELECT * FROM versiones v JOIN productos p on p.id = v.producto_id order by v.fecha_lanzamiento DESC";
-    
-    $resultado = mysqli_query($con, $query);
-    
-    if ($resultado) {
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-            $versiones[] = $fila;
-        }
-    } else {
-        echo 'Error en la consulta: ' . mysqli_error($con);
-    }
-    mysqli_close($con);
-    
-    ?>
 
-    <!-- HEADER -->
-    <header class="bg-white/50 backdrop-blur sticky top-0 z-50 shadow">
+    $id_producto = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+    $query = "SELECT * FROM productos WHERE id = " . $id_producto . " LIMIT 1";
+    $resultado = mysqli_query($con, $query);
+
+    if (!$resultado) {
+        die("Error en la consulta: " . mysqli_error($con));
+    }
+    $producto = mysqli_fetch_assoc($resultado);
+    if (!$producto) {
+        echo "<p>Producto no encontrado.</p>";
+        exit;
+    }
+    $nombre = htmlspecialchars($producto['nombre']);
+    $descripcion = htmlspecialchars($producto['descripcion']);
+    $precio = htmlspecialchars($producto['precio']);
+    $tipo = htmlspecialchars($producto['tipo']);
+
+    mysqli_close($con);
+
+    ?>
+    <!-- Cabecera -->
+    <header class="bg-white sticky top-0 z-50 border-b border-gray-200">
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="../../index.php" class="-m-1.5 p-1.5">
@@ -58,16 +63,14 @@
                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Productos</a>
                 <a href="./acerca.php" class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Acerca
                     de</a>
-                <a href="./contacto.php"
-                    class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600">Contacto</a>
+                <a href="./contacto.php" class="text-sm/6 font-semibold text-gray-900 text-indigo-600">Contacto</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
                 <a href="./descargas.php"
                     class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">
                     Descargar <span aria-hidden="true">&rarr;</span>
                 </a>
-                <a href="./login.php"
-                    class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-4 py-1.5
+                <a href="./login.php" class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-4 py-1.5
           text-sm font-semibold text-white shadow-md transition
           hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
@@ -86,7 +89,7 @@
             <div
                 class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                 <div class="flex items-center justify-between">
-                    <a href="../../index.php" class="-m-1.5 p-1.5">
+                    <a href="#" class="-m-1.5 p-1.5">
                         <span class="sr-only">SIADEG</span>
                         <img class="h-8 w-auto" src="../img/logo-siadeg.webp" alt="">
                     </a>
@@ -123,51 +126,47 @@
     </header>
 
     <!-- CONTENIDO -->
-    <main class="p-4">
-        <div class="absolute inset-x-0 -top-20 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-            aria-hidden="true">
-            <div id="smoke"
-                class="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+            <div class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
+                aria-hidden="true">
+                <div class="mx-auto aspect-1155/678 w-[72.1875rem] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
             </div>
         </div>
-        <div class="max-w-4xl mx-auto px-6 py-10">
-            <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold">SIADEG Gubernamental</h1>
-                <button class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Centro de
-                    Descargas</button>
-            </div>
-
-            <div class="bg-white rounded-lg shadow p-6 space-y-4">
-                <div class="flex justify-between items-center border-gray-200 border-b pb-4">
-                    <span class="font-semibold">Versión SIADEG:</span>
-                    <span class="text-indigo-600 font-bold">V 25.01.01 : 007</span>
-                </div>
-
-                <div>
-                    <h2 class="font-medium text-lg mb-2">Instalador de SIADEG Gubernamental</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <a href="<?php echo $versiones[0]['url_descarga']; ?>"
-                            class="block bg-gray-100 hover:bg-gray-200 text-indigo-600 p-3 rounded text-center">Servidor
-                            1</a>
-                        <a href="<?php echo $versiones[1]['url_descarga']; ?>"
-                            class="block bg-gray-100 hover:bg-gray-200 text-indigo-600 p-3 rounded text-center">Servidor
-                            2</a>
+        <div class="w-full px-5 lg:px-0 lg:max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Resumen del Producto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Imagen del producto si deseas -->
+                <div class="flex justify-center items-center">
+                    <div>
+                    <?php
+                        foreach (explode('-', $descripcion) as $caracteristica) {
+                            echo '<p class="flex items-center text-gray-600 mb-2">
+                        <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                        </span>' . trim($caracteristica) . '
+                    </p>';
+                        }
+                    ?>
                     </div>
                 </div>
-
-                <div>
-                    <h2 class="font-semibold text-lg mt-6 mb-3">Historial de Actualizaciones</h2>
-                    <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
-                        <?php foreach ($versiones as $version): ?>
-                        <li><strong><?php echo $version['version']; ?></strong> = <?php echo $version['fecha_lanzamiento']; ?> -
-                            <?php echo $version['nombre']; ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                <!-- Detalles del producto -->
+                <div class="flex flex-col justify-center space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-700"><?= $nombre ?></h3>
+                    <p class="text-gray-600"><?= $descripcion ?></p>
+                    <p class="text-sm text-gray-500">Tipo: <span class="font-medium text-gray-700"><?= $tipo ?></span>
+                    </p>
+                    <p class="text-lg font-bold text-indigo-600">S/. <?= number_format($precio, 2) ?> PEN</p>
+                    <form id="frmVisaNet" method="POST" action=""></form>
                 </div>
             </div>
         </div>
-    </main>
+
+    </section>
 
     <!-- Pie de pagina -->
     <footer class="text-gray-600 body-font">
@@ -197,7 +196,45 @@
             </span>
         </div>
     </footer>
-    <script src="../scripts/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const niubiz = window.Niubiz;
+
+        niubiz.setInitialConfig({
+            production: false, 
+            VISA_DEV_MERCHANT_ID: '456879852',
+            VISA_DEV_USER: 'integraciones@niubiz.com.pe',
+            VISA_DEV_PWD: '_7z3@8fF',
+            VISA_PROD_MERCHANT_ID: '', // Producción
+            VISA_PROD_USER: '', // Producción
+            VISA_PROD_PWD: '', // Producción
+            responseUrl: '/proyecto/src/pages/success.php', // URL de respuesta
+        });
+
+        niubiz.setPaymentConfig({
+            amount: parseFloat(<?= $precio ?>),
+            currency: 'PEN',
+            orderId: 'ORDER123456'
+        });
+
+        niubiz.setup();
+    })
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const openBtn = document.getElementById("openMenu");
+            const closeBtn = document.getElementById("closeMenu");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            openBtn.addEventListener("click", function () {
+                mobileMenu.classList.remove("hidden");
+            });
+
+            closeBtn.addEventListener("click", function () {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+    </script>
 </body>
 
 </html>

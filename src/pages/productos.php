@@ -131,9 +131,11 @@
           <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
             <div class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
               <h2 class="text-sm tracking-widest title-font mb-1 font-medium">
-                <?php echo htmlspecialchars($producto['nombre']); ?></h2>
+                <?php echo htmlspecialchars($producto['nombre']); ?>
+              </h2>
               <h1 class="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">
-                <?php echo htmlspecialchars($producto['precio']); ?></h1>
+                <?php echo htmlspecialchars($producto['precio']); ?>
+              </h1>
 
               <?php
               foreach (explode('-', $producto['descripcion']) as $caracteristica) {
@@ -146,13 +148,16 @@
           </p>';
               }
               ?>
-              <button
-                class="flex items-center mt-auto text-white bg-indigo-600 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Button
+              <a
+                href="./producto.php?id=<?php echo htmlspecialchars($producto['id']); ?>"
+                class="flex items-center mt-auto text-white bg-indigo-600 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">
+                Comprar ahora
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </button>
+              </a>
+              <form id="frmVisaNet" method="POST" action=""></form>
               <p class="text-xs text-gray-500 mt-3">
                 Precios válidos por mes. Anualmente se aplican descuentos.
               </p>
