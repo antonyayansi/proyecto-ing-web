@@ -93,7 +93,7 @@
                             <a href="src/pages/contacto.php"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Contacto</a>
                         </div>
-                        <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+                        <div class="flex lg:flex-1 lg:justify-end lg:gap-x-4">
                             <a href="../src/pages/descargas.php"
                                 class="text-sm/6 font-semibold text-white hover:bg-indigo-600 bg-indigo-500 rounded-full px-3 py-1">
                                 Descargar <span aria-hidden="true">&rarr;</span>

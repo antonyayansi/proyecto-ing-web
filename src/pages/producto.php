@@ -208,7 +208,8 @@
             VISA_PROD_MERCHANT_ID: '', // Producción
             VISA_PROD_USER: '', // Producción
             VISA_PROD_PWD: '', // Producción
-            responseUrl: '/proyecto/src/pages/success.php', // URL de respuesta
+            responseUrl: '/src/pages/success.php', // servidor
+            //responseUrl: '/proyecto/src/pages/success.php', // Local
         });
 
         niubiz.setPaymentConfig({
